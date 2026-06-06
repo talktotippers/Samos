@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Samos Honeymoon Planner V10</title>
+  <meta name="description" content="Mobile first Samos honeymoon planner with beaches, food, wine, beer, day plans, Greek phrases and maps." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">20 to 27 September · Karlovasi base · car hire</p>
+      <h1>Samos Honeymoon Planner</h1>
+      <p class="intro">A family friendly, food obsessed, map linked island guide for two adults and one nearly four year old.</p>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">☀️</button>
+  </header>
+
+  <main>
+    <section class="hero-card">
+      <div>
+        <p class="eyebrow">Today helper</p>
+        <h2>What shall we do today?</h2>
+        <p>Use filters, roll a complete day out, then tap the map links when you are ready to drive.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="primary" id="randomDayBtn" type="button">🎲 Surprise me</button>
+        <button class="secondary" id="clearFiltersBtn" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <nav class="tabbar" aria-label="Planner sections">
+      <button class="tab active" data-tab="places">📍 Places</button>
+      <button class="tab" data-tab="days">🚗 Day outs</button>
+      <button class="tab" data-tab="food">🍽 Food</button>
+      <button class="tab" data-tab="drink">🍷 Drink</button>
+      <button class="tab" data-tab="phrases">🇬🇷 Greek</button>
+      <button class="tab" data-tab="journal">📖 Journal</button>
+    </nav>
+
+    <section id="places" class="panel active">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Map linked guide</p>
+          <h2>Places worth saving</h2>
+        </div>
+        <input id="searchInput" class="search" type="search" placeholder="Search beaches, tavernas, views..." />
+      </div>
+
+      <div class="filters" id="filters"></div>
+      <div class="quick-stats" id="quickStats"></div>
+      <div class="card-grid" id="placesGrid"></div>
+    </section>
+
+    <section id="days" class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Complete day plans</p>
+          <h2>Ready made days out</h2>
+        </div>
+        <button class="primary" id="randomPlanBtn" type="button">🎲 Pick one</button>
+      </div>
+      <div id="randomResult" class="random-result hidden"></div>
+      <div class="day-grid" id="dayGrid"></div>
+    </section>
+
+    <section id="food" class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Menu decoder</p>
+          <h2>Local food and useful Greek words</h2>
+        </div>
+        <input id="foodSearch" class="search" type="search" placeholder="Search dishes or ingredients..." />
+      </div>
+      <div class="food-grid" id="foodGrid"></div>
+    </section>
+
+    <section id="drink" class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Muscat, beer and holiday notes</p>
+          <h2>Wine and beer tracker</h2>
+        </div>
+      </div>
+      <div class="split">
+        <div>
+          <h3>Wine list</h3>
+          <div id="wineGrid" class="mini-grid"></div>
+        </div>
+        <div>
+          <h3>Beer list</h3>
+          <div id="beerGrid" class="mini-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="phrases" class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Big text phrase cards</p>
+          <h2>Greek translator</h2>
+        </div>
+        <input id="phraseSearch" class="search" type="search" placeholder="Search hello, bill, petrol..." />
+      </div>
+      <div class="phrase-grid" id="phraseGrid"></div>
+    </section>
+
+    <section id="journal" class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Holiday memory journal</p>
+          <h2>Save the bits you will forget</h2>
+        </div>
+        <button class="secondary" id="exportJournalBtn" type="button">Export journal</button>
+      </div>
+      <form id="journalForm" class="journal-form">
+        <label>Date<input type="date" name="date" required /></label>
+        <label>Where did we go?<textarea name="where" rows="3" placeholder="Potami, Kokkari, Wine Museum..."></textarea></label>
+        <label>Best thing Rocco did<textarea name="kid" rows="3"></textarea></label>
+        <label>Best food, wine or beer<textarea name="food" rows="3"></textarea></label>
+        <label>Favourite moment<textarea name="moment" rows="3"></textarea></label>
+        <button class="primary" type="submit">Save memory</button>
+      </form>
+      <div id="journalEntries" class="journal-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built for GitHub Pages. Data saves only in this browser using local storage.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
