@@ -9,125 +9,152 @@
   <link rel="manifest" href="manifest.webmanifest" />
 </head>
 <body>
-  <header class="app-header">
-    <div>
-      <p class="eyebrow">20 to 27 September</p>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">20 to 27 September · Karlovasi base · family honeymoon</p>
       <h1>Samos Honeymoon Planner</h1>
-      <p class="subhead">Karlovasi base, hire car, honeymoon pace, nearly four year old friendly.</p>
+      <p class="lede">A mobile first planner for beaches, villages, food, beer, wine, family days out, romantic stops and Greek phrases.</p>
+      <div class="hero__actions">
+        <a class="button button--light" href="#generator">Surprise me</a>
+        <a class="button button--ghost" href="#dayplans">Complete days out</a>
+      </div>
     </div>
-    <button id="installBtn" class="ghost hidden">Install</button>
   </header>
 
   <nav class="tabs" aria-label="Planner sections">
-    <button class="tab active" data-tab="home">Home</button>
-    <button class="tab" data-tab="places">Places</button>
-    <button class="tab" data-tab="days">Day outs</button>
-    <button class="tab" data-tab="food">Food</button>
-    <button class="tab" data-tab="drink">Drink</button>
-    <button class="tab" data-tab="greek">Greek</button>
-    <button class="tab" data-tab="journal">Journal</button>
+    <a href="#today">Today</a>
+    <a href="#places">Places</a>
+    <a href="#dayplans">Days</a>
+    <a href="#food">Food</a>
+    <a href="#drink">Drink</a>
+    <a href="#phrases">Greek</a>
+    <a href="#journal">Journal</a>
   </nav>
 
   <main>
-    <section id="home" class="panel active">
-      <div class="hero-card">
-        <p class="eyebrow">V10 super build</p>
+    <section id="today" class="section section--intro">
+      <div class="section__heading">
+        <p class="eyebrow">Start here</p>
         <h2>What shall we do today?</h2>
-        <p>Use the generator when you want a proper suggestion, or browse by beaches, villages, food, wine and easy family stops.</p>
-        <div class="button-row">
-          <button id="randomBtn" class="primary">Surprise me</button>
-          <button id="kidBtn" class="secondary">Kid friendly idea</button>
-          <button id="romanticBtn" class="secondary">Honeymoon idea</button>
+        <p>Pick a mood, then let the planner build a realistic day from your Karlovasi base.</p>
+      </div>
+      <div id="generator" class="generator panel">
+        <div class="controls">
+          <label>
+            Mood
+            <select id="moodSelect">
+              <option value="easy">Easy family day</option>
+              <option value="beach">Beach day</option>
+              <option value="food">Food and villages</option>
+              <option value="history">History and harbour</option>
+              <option value="romantic">Honeymoon feel</option>
+              <option value="local">Less obvious spots</option>
+            </select>
+          </label>
+          <label>
+            Driving
+            <select id="driveSelect">
+              <option value="any">Any distance</option>
+              <option value="low">Keep it gentle</option>
+            </select>
+          </label>
+          <button id="buildDay" class="button">Build my day</button>
         </div>
+        <div id="generatedDay" class="generated-day"></div>
       </div>
-      <div id="todayResult" class="result-card"></div>
-      <div class="grid two">
-        <article class="info-card">
-          <h3>Base notes</h3>
-          <p>You are staying near Karlovasi, which is ideal for Potami, waterfalls, western beaches, mountain villages and quieter drives. Pythagoreio and Kokkari are still very doable by car.</p>
-        </article>
-        <article class="info-card">
-          <h3>September rhythm</h3>
-          <p>Do bigger drives in the morning, beach or pool after lunch, then villages or harbour dinners in the evening. Keep one no plan day free.</p>
-        </article>
-      </div>
-      <section class="info-card">
-        <h3>Saved quick links</h3>
-        <div id="favouritesList" class="mini-list"></div>
-      </section>
     </section>
 
-    <section id="places" class="panel">
-      <div class="toolbar">
-        <input id="searchInput" type="search" placeholder="Search beaches, villages, food, views..." />
-        <select id="categoryFilter">
-          <option value="all">All categories</option>
-          <option value="Beach">Beaches</option>
-          <option value="Village">Villages</option>
-          <option value="Sight">Sights</option>
-          <option value="Food">Restaurants</option>
-          <option value="Drink">Bars and drink</option>
-          <option value="Practical">Practical</option>
+    <section id="places" class="section">
+      <div class="section__heading">
+        <p class="eyebrow">Map based list</p>
+        <h2>Places to save, visit and navigate to</h2>
+        <p>Filter by type or search. Tap Google Maps to navigate.</p>
+      </div>
+      <div class="toolbar panel">
+        <input id="searchInput" type="search" placeholder="Search beaches, food, towns, viewpoints" />
+        <select id="typeFilter">
+          <option value="all">All types</option>
+          <option value="beach">Beaches</option>
+          <option value="village">Villages and towns</option>
+          <option value="sight">Sights</option>
+          <option value="food">Food and drink</option>
+          <option value="practical">Practical</option>
         </select>
       </div>
       <div id="placesGrid" class="card-grid"></div>
     </section>
 
-    <section id="days" class="panel">
-      <div class="section-head">
-        <h2>Complete day outs</h2>
-        <p>Built around sensible driving from Karlovasi, with food, beach time and child friendly pacing.</p>
+    <section id="dayplans" class="section section--sand">
+      <div class="section__heading">
+        <p class="eyebrow">Complete days out</p>
+        <h2>Ready made plans</h2>
+        <p>Use these as a base, then swap things depending on mood, heat and naps.</p>
       </div>
-      <div id="daysGrid" class="card-grid"></div>
+      <div id="dayPlansGrid" class="day-grid"></div>
     </section>
 
-    <section id="food" class="panel">
-      <div class="section-head">
-        <h2>Samos food decoder</h2>
-        <p>What to look for on menus, with Greek names, pronunciation help and what it actually is.</p>
+    <section id="food" class="section">
+      <div class="section__heading">
+        <p class="eyebrow">Menu decoder</p>
+        <h2>Local food to look for</h2>
+        <p>Greek words, what they mean and what to order when you spot them.</p>
       </div>
-      <div id="foodGrid" class="card-grid"></div>
+      <div id="foodGrid" class="info-grid"></div>
     </section>
 
-    <section id="drink" class="panel">
-      <div class="grid two">
-        <article class="info-card">
-          <h2>Local beer</h2>
-          <p>Samos Beer is based in Pythagoreio and is the obvious craft beer stop. Track anything you try below.</p>
-          <div id="beerTracker" class="tracker"></div>
-        </article>
-        <article class="info-card">
-          <h2>Local wine</h2>
-          <p>Samos means Muscat. Try sweet styles, dry Muscat if you see it, and anything marked Samos PDO.</p>
-          <div id="wineTracker" class="tracker"></div>
-        </article>
+    <section id="drink" class="section section--teal">
+      <div class="section__heading">
+        <p class="eyebrow">Beer and wine tracker</p>
+        <h2>What to drink in Samos</h2>
+        <p>Samos is serious Muscat country, with a small local brewery in Pythagoreio too.</p>
+      </div>
+      <div class="split">
+        <div>
+          <h3>Wine list</h3>
+          <div id="wineGrid" class="tracker-list"></div>
+        </div>
+        <div>
+          <h3>Beer list</h3>
+          <div id="beerGrid" class="tracker-list"></div>
+        </div>
       </div>
     </section>
 
-    <section id="greek" class="panel">
-      <div class="toolbar">
-        <input id="phraseSearch" type="search" placeholder="Search phrases, petrol, bill, hello..." />
+    <section id="phrases" class="section">
+      <div class="section__heading">
+        <p class="eyebrow">Phrase cards</p>
+        <h2>Useful Greek</h2>
+        <p>Tap a phrase to make it big enough to show someone.</p>
       </div>
-      <div id="phraseGrid" class="card-grid"></div>
+      <div id="phraseGrid" class="phrase-grid"></div>
+      <dialog id="phraseDialog">
+        <button class="dialog-close" id="closeDialog">Close</button>
+        <p id="dialogGreek" class="dialog-greek"></p>
+        <p id="dialogPronounce" class="dialog-pronounce"></p>
+        <p id="dialogEnglish" class="dialog-english"></p>
+      </dialog>
     </section>
 
-    <section id="journal" class="panel">
-      <div class="journal-box">
-        <h2>Holiday memory journal</h2>
-        <p>Saved only on this device.</p>
-        <label>Date <input id="journalDate" type="date" /></label>
-        <label>Where did we go? <input id="journalWhere" type="text" /></label>
-        <label>Best food or drink <input id="journalFood" type="text" /></label>
-        <label>Best Rocco moment <input id="journalRocco" type="text" /></label>
-        <label>Favourite moment <textarea id="journalMoment"></textarea></label>
-        <button id="saveJournal" class="primary">Save entry</button>
+    <section id="journal" class="section section--sand">
+      <div class="section__heading">
+        <p class="eyebrow">Holiday memory journal</p>
+        <h2>Save the little moments</h2>
+        <p>Saved on this phone only. Good for food notes, favourite beaches and the funny things your son says.</p>
       </div>
-      <div id="journalEntries" class="card-grid"></div>
+      <form id="journalForm" class="journal-form panel">
+        <label>Date<input type="date" id="journalDate" /></label>
+        <label>Where did you go?<input type="text" id="journalWhere" placeholder="Potami, Kokkari, Manolates" /></label>
+        <label>Best food or drink<input type="text" id="journalFood" placeholder="Octopus, Muscat, Samos Beer" /></label>
+        <label>Best family moment<textarea id="journalMoment" rows="3" placeholder="Something worth remembering"></textarea></label>
+        <button class="button" type="submit">Save journal entry</button>
+      </form>
+      <div id="journalEntries" class="journal-entries"></div>
     </section>
   </main>
 
-  <footer>
-    <p>Built for Samos, September 2026. Data saves locally in your browser.</p>
+  <footer class="footer">
+    <p>Made for one Samos honeymoon. Data saves locally in your browser.</p>
+    <button id="resetData" class="button button--small button--ghost-dark">Reset saved ticks</button>
   </footer>
 
   <script src="script.js"></script>
