@@ -1,162 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0f766e" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Samos Honeymoon Planner</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="manifest" href="manifest.webmanifest" />
+
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0d6efd">
 </head>
+
 <body>
-  <header class="hero">
-    <div class="hero__content">
-      <p class="eyebrow">20 to 27 September · Karlovasi base · family honeymoon</p>
-      <h1>Samos Honeymoon Planner</h1>
-      <p class="lede">A mobile first planner for beaches, villages, food, beer, wine, family days out, romantic stops and Greek phrases.</p>
-      <div class="hero__actions">
-        <a class="button button--light" href="#generator">Surprise me</a>
-        <a class="button button--ghost" href="#dayplans">Complete days out</a>
-      </div>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Samos · 20 to 27 September</p>
+      <h1>Samos Planner</h1>
     </div>
   </header>
 
-  <nav class="tabs" aria-label="Planner sections">
-    <a href="#today">Today</a>
-    <a href="#places">Places</a>
-    <a href="#dayplans">Days</a>
-    <a href="#food">Food</a>
-    <a href="#drink">Drink</a>
-    <a href="#phrases">Greek</a>
-    <a href="#journal">Journal</a>
+  <main id="app"></main>
+
+  <nav class="bottom-nav">
+    <button data-view="home">Home</button>
+    <button data-view="places">Places</button>
+    <button data-view="days">Days</button>
+    <button data-view="trackers">Saved</button>
+    <button data-view="practical">Useful</button>
   </nav>
 
-  <main>
-    <section id="today" class="section section--intro">
-      <div class="section__heading">
-        <p class="eyebrow">Start here</p>
-        <h2>What shall we do today?</h2>
-        <p>Pick a mood, then let the planner build a realistic day from your Karlovasi base.</p>
-      </div>
-      <div id="generator" class="generator panel">
-        <div class="controls">
-          <label>
-            Mood
-            <select id="moodSelect">
-              <option value="easy">Easy family day</option>
-              <option value="beach">Beach day</option>
-              <option value="food">Food and villages</option>
-              <option value="history">History and harbour</option>
-              <option value="romantic">Honeymoon feel</option>
-              <option value="local">Less obvious spots</option>
-            </select>
-          </label>
-          <label>
-            Driving
-            <select id="driveSelect">
-              <option value="any">Any distance</option>
-              <option value="low">Keep it gentle</option>
-            </select>
-          </label>
-          <button id="buildDay" class="button">Build my day</button>
-        </div>
-        <div id="generatedDay" class="generated-day"></div>
-      </div>
-    </section>
-
-    <section id="places" class="section">
-      <div class="section__heading">
-        <p class="eyebrow">Map based list</p>
-        <h2>Places to save, visit and navigate to</h2>
-        <p>Filter by type or search. Tap Google Maps to navigate.</p>
-      </div>
-      <div class="toolbar panel">
-        <input id="searchInput" type="search" placeholder="Search beaches, food, towns, viewpoints" />
-        <select id="typeFilter">
-          <option value="all">All types</option>
-          <option value="beach">Beaches</option>
-          <option value="village">Villages and towns</option>
-          <option value="sight">Sights</option>
-          <option value="food">Food and drink</option>
-          <option value="practical">Practical</option>
-        </select>
-      </div>
-      <div id="placesGrid" class="card-grid"></div>
-    </section>
-
-    <section id="dayplans" class="section section--sand">
-      <div class="section__heading">
-        <p class="eyebrow">Complete days out</p>
-        <h2>Ready made plans</h2>
-        <p>Use these as a base, then swap things depending on mood, heat and naps.</p>
-      </div>
-      <div id="dayPlansGrid" class="day-grid"></div>
-    </section>
-
-    <section id="food" class="section">
-      <div class="section__heading">
-        <p class="eyebrow">Menu decoder</p>
-        <h2>Local food to look for</h2>
-        <p>Greek words, what they mean and what to order when you spot them.</p>
-      </div>
-      <div id="foodGrid" class="info-grid"></div>
-    </section>
-
-    <section id="drink" class="section section--teal">
-      <div class="section__heading">
-        <p class="eyebrow">Beer and wine tracker</p>
-        <h2>What to drink in Samos</h2>
-        <p>Samos is serious Muscat country, with a small local brewery in Pythagoreio too.</p>
-      </div>
-      <div class="split">
-        <div>
-          <h3>Wine list</h3>
-          <div id="wineGrid" class="tracker-list"></div>
-        </div>
-        <div>
-          <h3>Beer list</h3>
-          <div id="beerGrid" class="tracker-list"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="phrases" class="section">
-      <div class="section__heading">
-        <p class="eyebrow">Phrase cards</p>
-        <h2>Useful Greek</h2>
-        <p>Tap a phrase to make it big enough to show someone.</p>
-      </div>
-      <div id="phraseGrid" class="phrase-grid"></div>
-      <dialog id="phraseDialog">
-        <button class="dialog-close" id="closeDialog">Close</button>
-        <p id="dialogGreek" class="dialog-greek"></p>
-        <p id="dialogPronounce" class="dialog-pronounce"></p>
-        <p id="dialogEnglish" class="dialog-english"></p>
-      </dialog>
-    </section>
-
-    <section id="journal" class="section section--sand">
-      <div class="section__heading">
-        <p class="eyebrow">Holiday memory journal</p>
-        <h2>Save the little moments</h2>
-        <p>Saved on this phone only. Good for food notes, favourite beaches and the funny things your son says.</p>
-      </div>
-      <form id="journalForm" class="journal-form panel">
-        <label>Date<input type="date" id="journalDate" /></label>
-        <label>Where did you go?<input type="text" id="journalWhere" placeholder="Potami, Kokkari, Manolates" /></label>
-        <label>Best food or drink<input type="text" id="journalFood" placeholder="Octopus, Muscat, Samos Beer" /></label>
-        <label>Best family moment<textarea id="journalMoment" rows="3" placeholder="Something worth remembering"></textarea></label>
-        <button class="button" type="submit">Save journal entry</button>
-      </form>
-      <div id="journalEntries" class="journal-entries"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>Made for one Samos honeymoon. Data saves locally in your browser.</p>
-    <button id="resetData" class="button button--small button--ghost-dark">Reset saved ticks</button>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="./script.js" defer></script>
 </body>
 </html>
