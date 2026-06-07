@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b87">
+  <title>Samos Honeymoon Planner</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-card">
+      <p class="eyebrow">Samos · 20 to 27 September · Erato by Samian Mare</p>
+      <h1>Samos Honeymoon Planner</h1>
+      <p class="intro">A mobile first trip app for beaches, food, wine, beer, family days out, Greek phrases, saved places and holiday memories.</p>
+      <div class="quick-actions">
+        <button class="primary" data-random-day>Surprise me</button>
+        <a class="ghost" href="https://www.google.com/maps/search/?api=1&query=Erato+by+Samian+Mare+Samos" target="_blank" rel="noopener">Hotel map</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="app-main" aria-live="polite"></main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button type="button" data-view="home" class="active">Home</button>
+    <button type="button" data-view="places">Places</button>
+    <button type="button" data-view="days">Days</button>
+    <button type="button" data-view="guide">Guide</button>
+    <button type="button" data-view="saved">Saved</button>
+  </nav>
+
+  <script src="./js/data.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</body>
+</html>
