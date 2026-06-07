@@ -1,0 +1,9 @@
+{
+  "name": "Samos Honeymoon Planner",
+  "short_name": "Samos",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f2e8",
+  "theme_color": "#0b6b75",
+  "icons": []
+}
