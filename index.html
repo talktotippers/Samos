@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Samos Trip</title>
+  <meta name="description" content="A personal Samos trip companion with places, food, Greek phrases, near me tools and memories.">
+  <meta name="theme-color" content="#13545f">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-view="today" aria-label="Home">
+      <span class="brand-mark">Σ</span>
+      <span><strong>Our Samos Trip</strong><small>20 to 27 September</small></span>
+    </button>
+    <button id="familyToggle" class="pill" type="button">Family Mode</button>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button data-view="today">Today</button>
+    <button data-view="food">Eat</button>
+    <button data-view="nearby">Near Me</button>
+    <button data-view="explore">Explore</button>
+    <button data-view="guide">Greek</button>
+    <button data-view="done">Done</button>
+    <button data-view="memory">Memory</button>
+  </nav>
+
+  <script src="./js/data.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</body>
+</html>
