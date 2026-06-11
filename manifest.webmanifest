@@ -1,9 +1,0 @@
-{
-  "name": "Our Samos Trip",
-  "short_name": "Samos",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#fffaf0",
-  "theme_color": "#176b73",
-  "icons": []
-}
